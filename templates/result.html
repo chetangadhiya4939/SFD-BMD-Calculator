@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculation Result</title>
+</head>
+<body>
+    <h1>Calculation Result</h1>
+    <p>Reaction R1: {{ R1 }}</p>
+    <p>Reaction R2: {{ R2 }}</p>
+    <p>Maximum Shear Force: {{ max_SF }}</p>
+    <p>Maximum Bending Moment: {{ maxBM }}</p>
+    <p>Position of Maximum Bending Moment: {{ maxBM_position }}</p>
+    <img src="data:image/png;base64,{{ plot_url }}" alt="SFD and BMD Plots">
+</body>
+</html>
