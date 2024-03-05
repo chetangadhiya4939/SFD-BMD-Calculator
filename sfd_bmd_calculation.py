@@ -37,10 +37,10 @@ for x in l:
 
 print(f'''
 Shear Force at x (x<{a}), Vx = R1 ={R1} {u1}
-            at x (x>{a}), SF = R1 - P = {R1} - {P} = -{R1-P} {u1}
+                at x (x>{a}), SF = R1 - P = {R1} - {P} = -{R1-P} {u1}
 
 Bending Moment at x (x<{a}), Mx = R1*x = {R1}*x
-            at x (x>={a}), Mx = R1*x - P*(x-{a}) 
+                at x (x>={a}), Mx = R1*x - P*(x-{a}) 
                                 = {R1}x - {P}(x-{a}) = -{R2}x + {P*a}
 ''')
 max_SF = 0

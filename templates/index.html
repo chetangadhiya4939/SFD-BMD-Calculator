@@ -1,20 +1,94 @@
+<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SFD-BMD Calculator</title>
+    <title>Beam Analysis Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>SFD-BMD Calculator</h1>
-    <form action="/calculate" method="post">
-        <label for="load">Load:</label>
-        <input type="text" id="load" name="load" placeholder="Enter load">
-        <label for="length">Length of the beam:</label>
-        <input type="text" id="length" name="length" placeholder="Enter length">
-        <label for="distance">Distance of Point load from left end:</label>
-        <input type="text" id="distance" name="distance" placeholder="Enter distance">
-        <input type="submit" value="Calculate">
-    </form>
+    <div class="container">
+        <h1>Beam Analysis Tool</h1>
+        <form action="/calculate" method="post">
+            <label for="length">Length of the beam:</label>
+            <input type="number" id="length" name="length" step="0.01" required><br>
+            
+            <h2>Point Loads</h2>
+            <div id="point_loads">
+                <div class="point_load">
+                    <label for="point_load_magnitude_1">Magnitude:</label>
+                    <input type="number" id="point_load_magnitude_1" name="point_load_magnitude_1" step="0.01" required>
+                    <label for="point_load_position_1">Position:</label>
+                    <input type="number" id="point_load_position_1" name="point_load_position_1" step="0.01" required>
+                </div>
+                <!-- Additional point load fields will be added dynamically using JavaScript -->
+            </div>
+            <button type="button" id="add_point_load">Add Point Load</button><br>
+            
+            <h2>Distributed Loads</h2>
+            <div id="distributed_loads">
+                <div class="distributed_load">
+                    <label for="distributed_load_magnitude_1">Magnitude:</label>
+                    <input type="number" id="distributed_load_magnitude_1" name="distributed_load_magnitude_1" step="0.01" required>
+                    <label for="distributed_load_length_1">Length:</label>
+                    <input type="number" id="distributed_load_length_1" name="distributed_load_length_1" step="0.01" required>
+                    <label for="distributed_load_position_1">Position:</label>
+                    <input type="number" id="distributed_load_position_1" name="distributed_load_position_1" step="0.01" required>
+                </div>
+                <!-- Additional distributed load fields will be added dynamically using JavaScript -->
+            </div>
+            <button type="button" id="add_distributed_load">Add Distributed Load</button><br>
+            
+            <label for="load_unit">Unit for Load:</label>
+            <select id="load_unit" name="load_unit">
+                <option value="N">Newtons (N)</option>
+                <option value="kN">KiloNewtons (kN)</option>
+                <!-- Add more units if needed -->
+            </select><br>
+            
+            <label for="length_unit">Unit for Length:</label>
+            <select id="length_unit" name="length_unit">
+                <option value="m">Meters (m)</option>
+                <option value="cm">Centimeters (cm)</option>
+                <option value="mm">Millimeters (mm)</option>
+                <!-- Add more units if needed -->
+            </select><br>
+            
+            <input type="submit" value="Calculate">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('add_point_load').addEventListener('click', function() {
+            var pointLoadsContainer = document.getElementById('point_loads');
+            var pointLoadIndex = pointLoadsContainer.children.length + 1;
+            var pointLoadDiv = document.createElement('div');
+            pointLoadDiv.classList.add('point_load');
+            pointLoadDiv.innerHTML = `
+                <label for="point_load_magnitude_${pointLoadIndex}">Magnitude:</label>
+                <input type="number" id="point_load_magnitude_${pointLoadIndex}" name="point_load_magnitude_${pointLoadIndex}" step="0.01" required>
+                <label for="point_load_position_${pointLoadIndex}">Position:</label>
+                <input type="number" id="point_load_position_${pointLoadIndex}" name="point_load_position_${pointLoadIndex}" step="0.01" required>
+            `;
+            pointLoadsContainer.appendChild(pointLoadDiv);
+        });
+
+        document.getElementById('add_distributed_load').addEventListener('click', function() {
+            var distributedLoadsContainer = document.getElementById('distributed_loads');
+            var distributedLoadIndex = distributedLoadsContainer.children.length + 1;
+            var distributedLoadDiv = document.createElement('div');
+            distributedLoadDiv.classList.add('distributed_load');
+            distributedLoadDiv.innerHTML = `
+                <label for="distributed_load_magnitude_${distributedLoadIndex}">Magnitude:</label>
+                <input type="number" id="distributed_load_magnitude_${distributedLoadIndex}" name="distributed_load_magnitude_${distributedLoadIndex}" step="0.01" required>
+                <label for="distributed_load_length_${distributedLoadIndex}">Length:</label>
+                <input type="number" id="distributed_load_length_${distributedLoadIndex}" name="distributed_load_length_${distributedLoadIndex}" step="0.01" required>
+                <label for="distributed_load_position_${distributedLoadIndex}">Position:</label>
+                <input type="number" id="distributed_load_position_${distributedLoadIndex}" name="distributed_load_position_${distributedLoadIndex}" step="0.01" required>
+            `;
+            distributedLoadsContainer.appendChild(distributedLoadDiv);
+        });
+    </script>
 </body>
 </html>
