@@ -1,47 +1,139 @@
-# SFD-BMD Calculator
+````markdown
+# 🧮 SFD & BMD Calculator (Shear Force & Bending Moment Diagram)
 
-🌟 **Exciting News!** 🌟
+[![Stars](https://img.shields.io/github/stars/chetangadhiya4939/SFD-BMD-Calculator?style=social)](https://github.com/chetangadhiya4939/SFD-BMD-Calculator/stargazers)
+[![Forks](https://img.shields.io/github/forks/chetangadhiya4939/SFD-BMD-Calculator?style=social)](https://github.com/chetangadhiya4939/SFD-BMD-Calculator/network/members)
+[![License](https://img.shields.io/github/license/chetangadhiya4939/SFD-BMD-Calculator)](LICENSE)
+[![Last Commit](https://img.shields.io/github/last-commit/chetangadhiya4939/SFD-BMD-Calculator)](https://github.com/chetangadhiya4939/SFD-BMD-Calculator/commits/main)
 
-I'm thrilled to announce the launch of my latest project inspired by Dr. Ayyanna Habal - a Beam Analysis Tool website under development! 🛠️
-
-## Features
-1. **Shear Force Diagram (SFD):** Visualizes the distribution of shear forces along the beam.
-2. **Bending Moment Diagram (BMD):** Illustrates the bending moments along the beam's length.
-3. **Interactive Inputs:** Easily input load, beam length, and point load distance.
-4. **Unit Selection:** Choose units for load and length, making it flexible for different scenarios.
-5. **Real-time Calculations:** Computes reactions, maximum shear force, and maximum bending moment instantly.
-6. **Clear Results Display:** Presents reaction forces and maximum values with chosen units.
-7. **User-friendly Interface:** Simple and intuitive design for easy navigation and usage.
-
-## How It Works
-1. **Initialize the Inputs:** Set up the load, beam length, and point load distance.
-2. **Select Units:** Choose the units for load and length.
-3. **Real-time Calculation:** Instantly computes and displays the shear force and bending moment diagrams.
-4. **Clear Results:** Display the computed reactions, shear force, and bending moment values clearly.
-
-## Requirements
-- Python
-- Flask
-
-## Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/SFD-BMD-calculator.git
-   ```
-2. Install the required libraries:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-## Usage
-Run the application:
-```bash
-python app.py
-```
-
-## Collaboration
-This project is open for collaboration and feedback! Explore the code and try out the functionalities on [GitHub](https://github.com/yourusername/SFD-BMD-calculator).
+This Python tool calculates and visualizes **Shear Force Diagrams (SFD)** and **Bending Moment Diagrams (BMD)** for beams under various types of loading conditions. It's ideal for engineering students and professionals working with structural mechanics.
 
 ---
 
-Let's build better structures together! 🏗️
+## 📌 Features
+
+- 🧱 Supports **Point Load**, **Uniformly Distributed Load (UDL)**, and **Moment Load**
+- 📈 Plots clear and scalable **SFD** and **BMD** diagrams using Matplotlib
+- 🧮 Computes key values: reactions, shear forces, and bending moments
+- ✅ Simple CLI-based user interaction
+- 📂 Extensible structure for future GUI integration
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology | Description |
+|------------|-------------|
+| `Python`   | Core programming language |
+| `Matplotlib` | Diagram plotting |
+| `NumPy`    | Numerical calculations |
+
+---
+
+## 🚀 How to Run
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/chetangadhiya4939/SFD-BMD-Calculator.git
+cd SFD-BMD-Calculator
+````
+
+### 2. Install Dependencies
+
+```bash
+pip install matplotlib numpy
+```
+
+### 3. Run the Calculator
+
+```bash
+python main.py
+```
+
+---
+
+## 📸 Screenshots
+
+> *(Add actual screenshots and update image paths accordingly)*
+
+### 📋 Input Section
+
+![Input](https://via.placeholder.com/600x300?text=Input+CLI)
+
+### 📉 Shear Force Diagram (SFD)
+
+![SFD](https://via.placeholder.com/600x300?text=SFD+Diagram)
+
+### 📊 Bending Moment Diagram (BMD)
+
+![BMD](https://via.placeholder.com/600x300?text=BMD+Diagram)
+
+---
+
+## 🧠 Example Input
+
+```text
+Enter beam length: 10
+Number of point loads: 1
+Load 1 position and magnitude: 5 20
+
+Number of UDLs: 1
+UDL 1 start, end, and intensity: 2 8 5
+
+Number of moments: 0
+```
+
+> The system calculates reactions, SFD values, and BMD values and plots them using Matplotlib.
+
+---
+
+## 📁 Folder Structure
+
+```
+SFD-BMD-Calculator/
+├── main.py              # Main script
+├── beam.py              # Core classes and methods
+├── load.py              # Load modeling
+├── sfd_bmd.py           # SFD & BMD logic and plotting
+├── utils.py             # Helper functions (if any)
+└── README.md
+```
+
+---
+
+## 📊 GitHub Stats
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=chetangadhiya4939&show_icons=true&theme=merko" width="48%" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=chetangadhiya4939&theme=merko" width="48%" />
+</p>
+
+---
+
+## 🧩 Future Improvements
+
+* [ ] GUI interface using Tkinter or PyQt
+* [ ] Add support for cantilever and fixed beams
+* [ ] Save/load beam configurations
+* [ ] Interactive plot zooming and annotations
+
+---
+
+## 🤝 Contributors
+
+* [Chetan Gadhiya](https://github.com/chetangadhiya4939)
+
+---
+
+## 📄 License
+
+Licensed under the [MIT License](LICENSE).
+
+---
+
+## 🌟 Show Your Support
+
+If you found this project helpful or interesting, **please give it a ⭐️** and share it with your peers!
+
+```
